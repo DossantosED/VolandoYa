@@ -1,0 +1,68 @@
+﻿@model IEnumerable<VolandoYa.Models.Vuelo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Admin</h1>
+
+<p>
+    <a class="linkCreate btn btn-primary" asp-action="Create"><i class="fas fa-plus"></i> Añadir un Vuelo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Destino)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Aerolinea)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha_salida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha_Vuelta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lugares_Disponibles)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Precio)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @if(Model.Count() > 0) {
+        @foreach (var item in Model) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Destino)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Aerolinea)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fecha_salida)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fecha_Vuelta)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Lugares_Disponibles)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Precio)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.id" class="linkCreate btn btn-primary"><i class="fas fa-edit"></i> Editar</a>
+                        <a asp-action="Delete" asp-route-id="@item.id" class="linkCreate btn btn-danger"><i class="fas fa-trash"></i> Eliminar</a>
+                    </td>
+                </tr>
+        }
+    }else{
+        <td>No hay Vuelos publicados</td>
+    }
+    </tbody>
+</table>

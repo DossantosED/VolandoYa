@@ -1,0 +1,209 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+
+@model VolandoYa.Models.User
+
+<div class="card mx-auto" style="width: 50rem;">
+    <div class="card-body">
+        <h5 class="card-title">¡Ya casi estás! Completá tus datos y finalizá tu compra</h5>
+        <form id="form" asp-action="Create">
+            <label for="time" class="control-label" id="labelTime">Tiempo de compra</label>
+            <div id="time"></div>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <label for="formaPago" class="control-label">
+                <i class="fas fa-credit-card"> </i>   ¿Cómo querés pagar?
+            </label>
+            <div class="form-group">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Tarjeta de crédito
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Tarjeta de débito
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-check-label" for="sexo_femenino">¿En cuántas cuotas desea pagar?</label>
+                <select class="form-control">
+                    <option> 6 cuótas sin interés de $</option>
+                    <option> 9 cuótas de $</option>
+                    <option> 12 cuótas de $</option>
+                </select>
+            </div>
+            <label class="control-label">
+                <h5>Ingresá los datos de la tarjeta</h5>
+            </label>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                        <label for="cardNum">NÚMERO DE TARJETA</label>
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-credit-card"></i></span>
+                            </div>
+                            <input id="cardNum" type="text" class="form-control" placeholder="Número de tu tarjeta" maxlength="16"><i class="fas fa-credit-card default" id="cardType"></i>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label for="cardName">TITULAR DE LA TARJETA</label>
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Como figura en tu tarjeta">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label for="cardNum">VENCIMIENTO</label>
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-calendar-week"></i></span>
+                            </div>
+                            <input id="cardNum" type="text" class="form-control" placeholder="MM/AA" maxlength="5">
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <label for="cardName">CÓD. SEGURIDAD</label>
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            </div>
+                            <input type="password" class="form-control" placeholder="CCC" maxlength="3">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label for="cardName">DOCUMENTO DEL TITULAR DE LA TARJETA</label>
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Ej: 42614695" maxlength="8">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <label for="formaPago" class="control-label">
+                DATOS DEL VIAJERO
+            </label>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                        <label for="cardNum">NOMBRES</label>
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-address-card"></i></span>
+                            </div>
+                            <input id="cardNum" type="text" class="form-control" placeholder="Ingresá tu nombre">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label for="cardName">APELLIDOS</label>
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-address-card"></i></span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Ingresá tu apellido">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <label for="formaPago" class="control-label">
+                SEXO
+            </label>
+            <div class="form-group">
+                <div class="form-check-inline">
+                    <input class="form-check-input" type="radio" name="sexo" id="sexo_femenino" checked>
+                    <label class="form-check-label" for="sexo_femenino">
+                        Femenino
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <input class="form-check-input" type="radio" name="sexo" id="sexo_masculino">
+                    <label class="form-check-label" for="sexo_masculino">
+                        Masculino
+                    </label>
+                </div>
+            </div>
+
+            <button type="button" id="btnEnviar" class="btn btn-primary" onclick="enviarForm()"><i class="fas fa-shopping-basket"></i> Finalizar compra</button>
+            <button type="submit" id="enviar" hidden></button>
+        </form>
+</div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+
+        let card = document.getElementById("cardNum")
+        let icon = document.getElementById("cardType")
+        card.onkeydown = function () {
+            if (card.value.length > 2) {
+                if (card.value.match(/.{1,1}/g)[0] == 4) {
+                    icon.classList = "fab fa-cc-visa"
+                } else if (card.value.match(/.{1,1}/g)[0] == 5 && card.value.match(/.{1,1}/g)[1] <= 5 || card.value.match(/.{1,4}/g)[0] == 2221 && card.value.match(/.{1,4}/g)[1] <= 2720) {
+                    icon.classList = "fab fa-cc-mastercard"
+                } else {
+                    icon.classList = "fa-credit-card.default"
+                }
+            } else {
+                icon.classList = "fas fa-credit-card default"
+            }
+        }
+
+        function enviarForm() {
+            let boton = document.getElementById("btnEnviar")
+            let enviar = document.getElementById("enviar")
+            let user = document.getElementById("user").value.trim()
+            let password = document.getElementById("password")
+            let errores = document.querySelectorAll('.field-validation-error').length
+            var _div = document.createElement('div');
+            _div.innerHTML = "<span class='spinner-border spinner-border-sm' role='status' aria-hidden='true'></span> Enviando...";
+            if (errores == 0  && user != "" && password != "") {
+                document.getElementsByClassName("fa-paper-plane")[0].style.display = "none"
+                boton.disabled = true
+                boton.innerText = "";
+                boton.appendChild(_div)
+                setTimeout(function () {
+                    enviar.click()
+                }, 3000)
+            } else {
+                enviar.click()
+            }
+        }
+
+        function startTimer(duration, display) {
+            var timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10)
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = duration;
+                }
+            }, 1000);
+        }
+
+        window.onload = function () {
+            var fiveMinutes = 60 * 5,
+                display = document.querySelector('#time');
+            startTimer(fiveMinutes, display);
+        };
+    </script>
+}

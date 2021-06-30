@@ -1,0 +1,212 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    background-color: #eee;
+    font-family: Rubik,Arial,sans-serif;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
+
+#btnEnviar {
+    background-color: #303eaa;
+    border-color: #1c2dae;
+    width: 100%;
+}
+
+#btnEnviar:hover {
+    background-color: #1c2dae;
+    border-color: #303eaa;
+}
+
+.field-validation-error{
+    bottom: 15px !important;
+    position: relative !important;
+}
+
+.control-label {
+    display: block;
+    font-weight: 500;
+}
+
+.bg-white {
+    background-color: #303eaa !important
+}
+
+.border-bottom {
+    border-bottom: 1px solid #1c2dae !important;
+}
+
+.navbar-light .navbar-brand {
+    color: rgb(255 255 255 / 90%);
+}
+
+.text-dark {
+    color: #ffffff !important;
+}
+
+a.text-dark:focus, a.text-dark:hover {
+  color: #1cbe7a !important;
+}
+
+.navbar-nav {
+    position: absolute;
+}
+
+.userLogin {
+    position: relative;
+    left: 100px;
+}
+.navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover{
+  color: white !important;
+}
+
+.linksFooter {
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+
+.success {
+    font-size: larger;
+    margin-top: 20px;
+}
+
+/*.mr-auto, .mx-auto {
+    margin-right: 30px !important;
+}
+
+.mr-auto, .mx-auto {
+    margin-left: 0px !important;
+}*/
+
+.fa-cc-visa {
+    color: #2b63c9;
+    font-size: 34px;
+    position: absolute;
+    right: 10px;
+    top: 2px;
+    z-index: 99;
+}
+
+.fa-cc-mastercard {
+    color: #2b63c9;
+    font-size: 34px;
+    position: absolute;
+    right: 10px;
+    top: 2px;
+    z-index: 99;
+}
+.fa-credit-card.default {
+    font-size: 33px;
+    position: absolute;
+    right: 10px;
+    top: 2px;
+    z-index: 99;
+}
+
+input[type='radio'] {
+    -webkit-appearance: none;
+    width: 17px;
+    height: 17px;
+    border: 1px solid darkgray;
+    border-radius: 50%;
+    outline: none;
+}
+
+input[type='radio']:hover {
+    box-shadow: 0 0 5px 0px #1c2dae inset;
+}
+
+input[type='radio']:before {
+    content: '';
+    display: block;
+    width: 60%;
+    height: 60%;
+    margin: 20% auto;
+    border-radius: 50%;
+}
+
+input[type='radio']:checked:before {
+    background: #1c2dae;
+}
+
+#time {
+    left: 45rem;
+    position: absolute;
+    top: 1rem;
+}
+
+#labelTime {
+    left: 35rem;
+    position: absolute;
+    top: 1rem;
+}
+
+.linkCreate {
+    color: white !important;
+    text-decoration: none !important;
+}

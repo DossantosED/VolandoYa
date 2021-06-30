@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Success!";
+}
+
+<div class="card mx-auto" style="width: 18rem;">
+    <div class="card-body">
+        <div class="form-group">
+            <p class="success">Cuenta creada con exito!</p>
+            <h6>Volviendo al inicio...</h6>
+            <div class="d-flex justify-content-center">
+                <div class="spinner-border" style="color: #303eaa" role="status"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        setTimeout(function (){
+            window.location.href = "/Home"
+        }, 3000)
+    </script>
+}

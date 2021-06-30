@@ -1,0 +1,74 @@
+﻿@{
+    ViewData["Title"] = "Crear Cuenta";
+}
+
+@model VolandoYa.Models.User
+
+<div class="card mx-auto" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">CREAR CUENTA</h5>
+        <form asp-action="Create" id="formCrearCuenta">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <label asp-for="user" class="control-label"></label>
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                </div>
+                <input asp-for="user" class="form-control" placeholder="usuario" autocomplete="off"/>
+            </div>
+            <span asp-validation-for="user" class="text-danger"></span>
+
+            <label asp-for="email" class="control-label"></label>
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                </div>
+                <input asp-for="email" class="form-control" placeholder="usuario@mail.com" autocomplete="off" />
+            </div>
+            <span asp-validation-for="email" class="text-danger"></span>
+
+            <label asp-for="password" class="control-label"></label>
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                </div>
+                <input asp-for="password" type="password" class="form-control" placeholder="contraseña" autocomplete="off" />
+            </div>
+            <span asp-validation-for="password" class="text-danger"></span>
+
+            <button type="button" id="btnEnviar" class="btn btn-primary" onclick="enviarForm()"><i class="fas fa-paper-plane"></i> Enviar</button>
+            <button type="submit" id="enviar" hidden></button>
+            <div class="form-group linksFooter">
+                <a href="/Login" class="linkCrear">Ya tengo una cuenta</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+
+        function enviarForm() {
+            let boton = document.getElementById("btnEnviar")
+            let enviar = document.getElementById("enviar")
+            let user = document.getElementById("user").value.trim()
+            let email = document.getElementById("email").value.trim()
+            let password = document.getElementById("password")
+            let errores = document.querySelectorAll('.field-validation-error').length
+            var _div = document.createElement('div');
+            _div.innerHTML = "<span class='spinner-border spinner-border-sm' role='status' aria-hidden='true'></span> Enviando...";
+            if (errores == 0 && email != "" && user != "" && password != "") {
+                document.getElementsByClassName("fa-paper-plane")[0].style.display = "none"
+                boton.disabled = true
+                boton.innerText = "";
+                boton.appendChild(_div)
+                setTimeout(function () {
+                    enviar.click()
+                }, 3000)
+            } else {
+                enviar.click()
+            }
+        }
+    </script>
+}
