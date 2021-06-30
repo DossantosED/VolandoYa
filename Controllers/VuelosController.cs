@@ -55,9 +55,9 @@ namespace VolandoYa.Controllers
             ViewBag.traerAerolineas = _context.Aerolineas.ToList();
             ViewBag.traerDestinos = _context.Destinos.ToList();
             if (vuelo.Aerolinea != null)
-                vuelo.id = vuelo.Aerolinea.id;
+                vuelo.id = vuelo.Aerolineas.id;
             if (vuelo.Destino != null)
-                vuelo.id = vuelo.Destino.id;
+                vuelo.id = vuelo.Destinos.id;
         }
 
 
@@ -70,13 +70,13 @@ namespace VolandoYa.Controllers
         {
             if (ModelState.IsValid)
             {
-                vuelo.Aerolinea = _context.Aerolineas.FirstOrDefault(o => o.id == vuelo.idAerolinea);
-                vuelo.Destino = _context.Destinos.FirstOrDefault(o => o.id == vuelo.idDestino);
+                //vuelo.Aerolinea = _context.Aerolineas.FirstOrDefault(o => o.id == vuelo.idAerolinea);
+                //vuelo.Destino = _context.Destinos.FirstOrDefault(o => o.id == vuelo.idDestino);
                 _context.Add(vuelo);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            this.CompletarViewBag(vuelo);
+            //this.CompletarViewBag(vuelo);
             return View(vuelo);
         }
 

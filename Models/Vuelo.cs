@@ -8,12 +8,12 @@ namespace VolandoYa.Models
     {
         public int id { get; set; }
 
-        public Aerolinea Aerolinea { get; set; }
-        public Destino Destino { get; set; }
+        public Aerolinea Aerolineas { get; set; }
+        public Destino Destinos { get; set; }
 
-        //public String Destino { get; set; }
+        public String Destino { get; set; }
 
-        //public String Aerolinea { get; set; }
+        public String Aerolinea { get; set; }
 
         [Display(Name = "Fecha de salida")]
         [Required(ErrorMessage = "Este campo es requerido.")]
@@ -29,13 +29,6 @@ namespace VolandoYa.Models
 
         [Required(ErrorMessage = "Este campo es requerido.")]
         public double Precio { get; set; }
-
-        [NotMapped]
-        [Required(ErrorMessage = "Este campo es requerido.")]
-        public int idAerolinea { get; set; } //esto va aca?
-        [NotMapped]
-        [Required(ErrorMessage = "Este campo es requerido.")]
-        public int idDestino { get; set; } //esto va aca?
 
     }
 }

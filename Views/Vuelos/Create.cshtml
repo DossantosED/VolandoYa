@@ -15,23 +15,28 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
                 </div>
-                <select class="form-control" asp-for="idDestino"
-                        asp-items="@(new SelectList(ViewBag.traerDestinos, "id", "Nombre"))">
+                <select class="form-control" asp-for="Destino">
+                    @foreach (var a in ViewBag.traerDestinos)
+                    {
+                        <option value="@(a.Nombre)">@(a.Nombre)</option>
+                    }
                 </select>
             </div>
-            <span asp-validation-for="idDestino" class="text-danger"></span>
+            <span asp-validation-for="Destino" class="text-danger"></span>
 
             <label asp-for="Aerolinea" class="control-label"></label>
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-plane"></i></span>
                 </div>
-                <select class="form-control" asp-for="idAerolinea"
-                        asp-items="@(new SelectList(ViewBag.traerAerolineas, "id", "Nombre"))">
+                <select class="form-control" asp-for="Aerolinea">
+                    @foreach (var a in ViewBag.traerAerolineas) {
+                        <option value="@(a.Nombre)">@(a.Nombre)</option>
+                    }
                 </select>
             </div>
 
-            <span asp-validation-for="idAerolinea" class="text-danger"></span>
+            <span asp-validation-for="Aerolinea" class="text-danger"></span>
 
             <label asp-for="Fecha_salida" class="control-label"></label>
             <div class="form-group input-group">
