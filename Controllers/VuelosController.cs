@@ -93,6 +93,7 @@ namespace VolandoYa.Controllers
             {
                 return NotFound();
             }
+            this.CompletarViewBag(new Vuelo());
             return View(vuelo);
         }
 

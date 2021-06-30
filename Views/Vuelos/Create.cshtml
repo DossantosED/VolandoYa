@@ -1,5 +1,4 @@
 ﻿@model VolandoYa.Models.Vuelo
-
 @{
     ViewData["Title"] = "Create";
 }
@@ -30,7 +29,8 @@
                     <span class="input-group-text"><i class="fas fa-plane"></i></span>
                 </div>
                 <select class="form-control" asp-for="Aerolinea">
-                    @foreach (var a in ViewBag.traerAerolineas) {
+                    @foreach (var a in ViewBag.traerAerolineas) 
+                    {
                         <option value="@(a.Nombre)">@(a.Nombre)</option>
                     }
                 </select>

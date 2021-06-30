@@ -1,26 +1,43 @@
 ﻿@model VolandoYa.Models.Vuelo
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar vuelo";
 }
 
-<h1>Edit</h1>
+<h1>Editar vuelo</h1>
 
-<h4>Vuelo</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
+
+<div class="card mx-auto" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">Editar vuelo</h5>
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="id" />
             <div class="form-group">
                 <label asp-for="Destino" class="control-label"></label>
-                <input asp-for="Destino" class="form-control" />
+                <select class="form-control" asp-for="Destino">
+                    <option value="@(Model.Destino)">@Model.Destino</option>
+                    @foreach (var a in ViewBag.traerDestinos)
+                    {
+                        @if(Model.Destino!= a.Nombre){
+                            <option value="@(a.Nombre)">@(a.Nombre)</option>
+                        }
+                    }
+                </select>
                 <span asp-validation-for="Destino" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Aerolinea" class="control-label"></label>
-                <input asp-for="Aerolinea" class="form-control" />
+                <select class="form-control" asp-for="Aerolinea">
+                    <option value="@(Model.Aerolinea)">@Model.Aerolinea</option>
+                    @foreach (var a in ViewBag.traerAerolineas)
+                    {
+                        @if(Model.Aerolinea!= a.Nombre){
+                            <option value="@(a.Nombre)">@(a.Nombre)</option>
+                        }
+                    }
+                </select>
                 <span asp-validation-for="Aerolinea" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -44,14 +61,14 @@
                 <span asp-validation-for="Precio" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <button type="submit" id="btnEnviar" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Guardar</button>
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Volver a los vuelos</a>
 </div>
 
 @section Scripts {
