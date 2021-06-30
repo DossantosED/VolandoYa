@@ -6,3 +6,5 @@ obj
 packages
 *.vs
 .vs/
+obj/Debug/netcoreapp3.1/VolandoYa.assets.cache
+obj/Debug/netcoreapp3.1/VolandoYa.csprojAssemblyReference.cache
